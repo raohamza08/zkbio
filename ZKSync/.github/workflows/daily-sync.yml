@@ -1,0 +1,25 @@
+name: Daily Google Sheets Sync
+
+on:
+  schedule:
+    - cron: "0 4 * * *"  # Runs daily at 9 AM Pakistan Time (UTC+5)
+  workflow_dispatch:     # Allows manual run from GitHub
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run ZKSync Script
+        run: python ZKSync/zk_to_sheets.py
