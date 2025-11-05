@@ -21,7 +21,9 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install gspread oauth2client zk future
+        run: |
+          pip install gspread oauth2client future
+          pip install git+https://github.com/fananimi/zk.git
 
       - name: Run zkbio script
         run: python zk_to_sheets.py
