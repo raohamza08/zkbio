@@ -24,4 +24,4 @@ jobs:
         run: pip install gspread oauth2client zk future
 
       - name: Run ZKSync script
-        run: python ZKSync/zk_to_sheets.py
+        run: python zkbio/zk_to_sheets.py
